@@ -1,0 +1,44 @@
+PLANIFICACIÓN
+
+1. Crear diseño en figma.
+
+2. Crear algoritmo que convierta peso en discos con barra de 20kg y discos oficiales olímpicos en kg (25, 20, 15, 10, 5, 2.5, 2, 1.5, 1, 0.5) e implementar UI básica.
+
+3. Introducir opción de cambiar la barra a 15kg.
+
+4. Introducir opción de Lbs, en discos (55, 45, 35, 25, 10, 5, 2.5, 1.25) y en barra (45 o 35).
+
+5. Implementar diseño completo.
+
+6. Desplegar en Play Store.
+
+
+FUNCIÓN ALGORITMO
+
+Argumentos: unidades, peso total, peso barra.
+
+Return: {
+	red: <number>,
+	blue: <number>,
+	yellow: <number>,
+	green: <number>,
+	white: <number>,
+	partialRed: <number>,
+	partialBlue: <number>,
+	partialYellow: <number>,
+	partialGreen: <number>,
+	partialWhite: <number>
+}
+
+POSIBLES MEJORAS
+
+- Añadir cierres con pesos.
+
+- Añadir pesos de barra personalizados (saltos de 0.5kg en 0.5kg o 1.25lb en 1.25lb).
+
+- Añadir opción ES/EN.
+
+
+RECURSOS
+
+https://fitatmidlife.com/olympic-weight-plate-color-coding/
