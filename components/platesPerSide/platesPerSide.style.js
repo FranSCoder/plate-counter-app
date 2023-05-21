@@ -8,20 +8,26 @@ const styles = StyleSheet.create({
     fontSize: 28,
     paddingBottom: 8,
     fontFamily: 'FCMedium',
+    color: 'linen',
   },
   plateText: {
     flexDirection: 'row',
   },
   weightText: {
-    color: '#000',
+    color: 'linen',
     width: 68,
     fontSize: 18,
-    fontFamily: 'FCRegular',
+    fontFamily: 'FCMedium',
+  },
+  emptyBarText: {
+    color: 'lightcoral',
+    fontSize: 14,
+    fontFamily: 'FCMedium',
   },
   amountText: {
-    color: '#880000',
+    color: 'lightcoral',
     fontSize: 18,
-    fontFamily: 'FCRegular',
+    fontFamily: 'FCMedium',
   },
 })
 

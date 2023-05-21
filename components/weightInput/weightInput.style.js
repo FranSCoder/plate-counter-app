@@ -2,8 +2,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   wrapper: {
-    paddingHorizontal: '10%',
-    paddingVertical: '3%',
+    padding: '3%',
   },
   inputContainer: {
     height: 50,
@@ -16,19 +15,20 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 10,
     height: '100%',
     paddingHorizontal: 16,
-    backgroundColor: '#f3f3f3',
+    backgroundColor: 'linen',
     flex: 1,
-    fontFamily: 'FCRegular',
+    fontFamily: 'FCMedium',
     fontSize: 20,
   },
   unitButton: {
     width: 75,
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
-    backgroundColor: '#f3f3f3',
+    backgroundColor: '#90e0ef',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    elevation: 8,
   },
 })
 

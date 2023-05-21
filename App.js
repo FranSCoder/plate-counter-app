@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar'
-import { Text, View, ScrollView } from 'react-native'
+import { Text, View, ScrollView, Appearance } from 'react-native'
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context'
 import { useState, useCallback } from 'react'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 
 import WeightInput from './components/weightInput/WeightInput'
-import calcularDiscos from './utils/plateCounter'
 import styles from './styles'
 import Barbell from './components/barbell/Barbell'
 import PlatesPerSide from './components/platesPerSide/PlatesPerSide'
@@ -51,34 +50,37 @@ export default function App() {
         style={styles.container}
         onLayout={onLayoutRootView}
       >
-        <StatusBar style='auto' />
-        <View>
-          <Text style={styles.title}>My Plate Counter</Text>
-        </View>
-        <WeightInput
-          units={units}
-          setUnits={setUnits}
-          totalWeight={totalWeight}
-          setTotalWeight={setTotalWeight}
-          barbellWeight={barbellWeight}
-          setBarbellWeight={setBarbellWeight}
-          loadedPlates={loadedPlates}
-          setLoadedPlates={setLoadedPlates}
-          plateCounter={plateCounter}
-        />
-        <Barbell
-          units={units}
-          totalWeight={totalWeight}
-          setTotalWeight={setTotalWeight}
-          barbellWeight={barbellWeight}
-          setBarbellWeight={setBarbellWeight}
-          loadedPlates={loadedPlates}
-        />
-        <PlatesPerSide
-          units={units}
-          totalWeight={totalWeight}
-          barbellWeight={barbellWeight}
-        />
+        <StatusBar backgroundColor='#00b4d8' />
+        <ScrollView style={styles.scrollView}>
+          <View>
+            <Text style={styles.title}>Plate Calculator</Text>
+          </View>
+          <WeightInput
+            units={units}
+            setUnits={setUnits}
+            totalWeight={totalWeight}
+            setTotalWeight={setTotalWeight}
+            barbellWeight={barbellWeight}
+            setBarbellWeight={setBarbellWeight}
+            loadedPlates={loadedPlates}
+            setLoadedPlates={setLoadedPlates}
+            plateCounter={plateCounter}
+          />
+          <Barbell
+            units={units}
+            totalWeight={totalWeight}
+            setTotalWeight={setTotalWeight}
+            barbellWeight={barbellWeight}
+            setBarbellWeight={setBarbellWeight}
+            loadedPlates={loadedPlates}
+          />
+          <PlatesPerSide
+            units={units}
+            totalWeight={totalWeight}
+            barbellWeight={barbellWeight}
+            loadedPlates={loadedPlates}
+          />
+        </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   )

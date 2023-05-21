@@ -16,7 +16,7 @@ const Barbell = ({ units, totalWeight, setTotalWeight, barbellWeight, setBarbell
   }
 
   useEffect(() => {
-    const loadPlateImages = async () => {
+    const loadPlateImages = () => {
       const images = []
       const redPlateImage = require('../../assets/images/red.png')
       const bluePlateImage = require('../../assets/images/blue.png')
@@ -93,11 +93,11 @@ const Barbell = ({ units, totalWeight, setTotalWeight, barbellWeight, setBarbell
           style={styles.barbellButton}
           onPress={handleBarbellChange}
         >
-          <Text style={styles.unitsButtonStyle}>
+          <Text style={styles.barbellButtonText}>
             {barbellWeight}
             {units}
           </Text>
-          <Text style={styles.unitsButtonStyle}>Barbell</Text>
+          <Text style={styles.barbellButtonText}>Barbell</Text>
         </TouchableOpacity>
       </View>
     </View>

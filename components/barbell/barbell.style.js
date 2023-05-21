@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingHorizontal: '10%',
     paddingVertical: '3%',
   },
   imageWrapper: {
@@ -31,18 +30,19 @@ const styles = StyleSheet.create({
   textWrapper: {
     flex: 1,
   },
-  unitsButtonStyle: {
+  barbellButtonText: {
     fontFamily: 'FCMedium',
     fontSize: 14,
     textAlign: 'center',
     textDecorationLine: 'underline',
   },
   barbellButton: {
-    padding: 6,
     borderRadius: 10,
-    backgroundColor: '#f3f3f3',
+    backgroundColor: '#90e0ef',
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: '10%',
+    elevation: 8,
   },
   grip: {
     width: 55,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
   },
   yellow: {
-    width: 11,
+    width: 10,
     height: 148,
     resizeMode: 'stretch',
   },
@@ -85,28 +85,28 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
   },
   partialRed: {
-    width: 9,
+    width: 6,
     height: 74,
     resizeMode: 'stretch',
   },
   partialBlue: {
-    width: 9,
+    width: 6,
     height: 64,
     resizeMode: 'stretch',
   },
   partialYellow: {
-    width: 9,
+    width: 6,
     height: 54,
     resizeMode: 'stretch',
   },
   partialGreen: {
-    width: 9,
+    width: 5,
     height: 44,
     resizeMode: 'stretch',
   },
   partialWhite: {
-    width: 9,
-    height: 34,
+    width: 5,
+    height: 38,
     resizeMode: 'stretch',
   },
 })

@@ -1,10 +1,14 @@
 const plateCounter = (pesoTotal, pesoBarra, unidad) => {
   // Inicializar el resultado como un objeto vacío
   const resultado = {}
+  const mensajes = {}
 
   // Devolver Error si existen anomalías
   if (pesoTotal < pesoBarra) {
-    resultado.error = 'Minimum weight liftable is the bar weight'
+    mensajes.error = 'Minimum weight liftable is the bar weight'
+  }
+  if ((unidad === 'Kgs' && pesoTotal > 500) || (unidad === 'Lbs' && pesoTotal > 1100)) {
+    mensajes.error = "That's too much weight!"
   }
 
   // Peso de los discos disponibles en kg y lbs
@@ -21,21 +25,24 @@ const plateCounter = (pesoTotal, pesoBarra, unidad) => {
   const discos = unidad === 'Lbs' ? discosLb : discosKg
 
   // Recorrer los discos disponibles y calcular cuántos de cada uno se necesitan
-  for (let i = 0; i < discos.length; i++) {
-    const disco = discos[i]
-    const cantidad = Math.floor(pesoPorLado / disco)
+  if ((unidad === 'Kgs' && pesoTotal <= 500) || (unidad === 'Lbs' && pesoTotal <= 1100)) {
+    for (let i = 0; i < discos.length; i++) {
+      const disco = discos[i]
+      const cantidad = Math.floor(pesoPorLado / disco)
 
-    if (cantidad > 0) {
-      resultado[disco] = cantidad
-      pesoPorLado -= disco * cantidad
+      if (cantidad > 0) {
+        resultado[disco] = cantidad
+        pesoPorLado -= disco * cantidad
+      }
+    }
+
+    // Revisar si queda peso sin asignar
+    if (pesoPorLado !== 0 && pesoPorLado > 0) {
+      mensajes.unallocated = pesoPorLado * 2
     }
   }
 
-  // Revisar si queda peso sin asignar
-  if (pesoPorLado !== 0) {
-    resultado.unallocated = (pesoPorLado * 2).toFixed(2)
-  }
-  return resultado
+  return [resultado, mensajes]
 }
 
 export default plateCounter
