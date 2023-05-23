@@ -20,7 +20,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff",
-        "userInterfaceStyle": "light"
+        "userInterfaceStyle": "light",
+        "versionCode": 2
       },
       "package": "com.franscoder.platecounterapp"
     },
