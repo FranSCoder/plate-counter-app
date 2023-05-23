@@ -46,8 +46,7 @@ export default function App() {
 
   if (!fontsLoaded) return null
 
-  let { languageCode } = getLocales()[0]
-  languageCode = 'es'
+  const { languageCode } = getLocales()[0]
 
   return (
     <SafeAreaProvider>

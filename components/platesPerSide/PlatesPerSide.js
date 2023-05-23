@@ -77,9 +77,10 @@ const PlatesPerSide = ({ units, totalWeight, barbellWeight, loadedPlates, langua
         <Text style={styles.emptyBarText}>
           {languageCode === 'es' ? 'Por favor, introduce peso a levantar' : 'Please, enter a desired weight'}
         </Text>
-      ) : (
+      ) : (units === 'Kgs' && totalWeight <= 500 && totalWeight >= barbellWeight) ||
+        (units === 'Lbs' && totalWeight <= 1100 && totalWeight >= barbellWeight) ? (
         plateArray
-      )}
+      ) : null}
     </View>
   )
 }

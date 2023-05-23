@@ -21,6 +21,18 @@ const WeightInput = ({
   }
 
   useEffect(() => {
+    setLoadedPlates({
+      red: 0,
+      blue: 0,
+      yellow: 0,
+      green: 0,
+      white: 0,
+      partialRed: 0,
+      partialBlue: 0,
+      partialYellow: 0,
+      partialGreen: 0,
+      partialWhite: 0,
+    })
     const getData = setTimeout(() => {
       const plates = plateCounter(totalWeight, barbellWeight, units, languageCode)
       setLoadedPlates(

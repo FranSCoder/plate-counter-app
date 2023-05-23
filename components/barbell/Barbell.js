@@ -94,7 +94,12 @@ const Barbell = ({
             style={styles.sleeve}
           />
         </View>
-        <View style={styles.platesWrapper}>{plateImages}</View>
+        <View style={styles.platesWrapper}>
+          {(units === 'Kgs' && totalWeight <= 500 && totalWeight >= barbellWeight) ||
+          (units === 'Lbs' && totalWeight <= 1100 && totalWeight >= barbellWeight)
+            ? plateImages
+            : null}
+        </View>
       </View>
       <View style={styles.textWrapper}>
         <TouchableOpacity
