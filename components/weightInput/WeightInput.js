@@ -14,6 +14,7 @@ const WeightInput = ({
   loadedPlates,
   setLoadedPlates,
   plateCounter,
+  languageCode,
 }) => {
   function showToast(msg) {
     ToastAndroid.showWithGravity(msg, ToastAndroid.LONG, ToastAndroid.CENTER)
@@ -21,7 +22,7 @@ const WeightInput = ({
 
   useEffect(() => {
     const getData = setTimeout(() => {
-      const plates = plateCounter(totalWeight, barbellWeight, units)
+      const plates = plateCounter(totalWeight, barbellWeight, units, languageCode)
       setLoadedPlates(
         units === 'Kgs'
           ? {
@@ -51,7 +52,9 @@ const WeightInput = ({
       )
       plates[1].unallocated !== undefined &&
         showToast(
-          `Unable to allocate: ${plates[1].unallocated.toFixed(2)} ${units}. Advice: try with ${
+          `${languageCode === 'es' ? 'No fue posible colocar' : 'Unable to allocate:'} ${plates[1].unallocated.toFixed(
+            2
+          )} ${units}. ${languageCode === 'es' ? 'Consejo: inténtalo con' : 'Advice: try with'} ${
             totalWeight - plates[1].unallocated
           } ${units}`
         )
@@ -68,7 +71,9 @@ const WeightInput = ({
 
   return (
     <View style={styles.wrapper}>
-      <Text style={{ fontFamily: 'FCMedium', color: 'linen' }}>Desired weight:</Text>
+      <Text style={{ fontFamily: 'FCMedium', color: 'linen' }}>
+        {languageCode === 'es' ? 'Peso a levantar:' : 'Desired weight:'}
+      </Text>
       <View style={styles.inputContainer}>
         <TextInput
           value={String(totalWeight)}

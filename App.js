@@ -1,15 +1,17 @@
 import { StatusBar } from 'expo-status-bar'
-import { Text, View, ScrollView, Appearance } from 'react-native'
+import { Text, View, ScrollView, Appearance, KeyboardAvoidingView } from 'react-native'
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context'
 import { useState, useCallback } from 'react'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
+import { getLocales } from 'expo-localization'
 
 import WeightInput from './components/weightInput/WeightInput'
-import styles from './styles'
-import Barbell from './components/barbell/Barbell'
 import PlatesPerSide from './components/platesPerSide/PlatesPerSide'
+import Barbell from './components/barbell/Barbell'
+import BuyMeACoffee from './components/buyMeACoffee/BuyMeACoffee'
 import plateCounter from './utils/plateCounter'
+import styles from './styles'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -44,6 +46,9 @@ export default function App() {
 
   if (!fontsLoaded) return null
 
+  let { languageCode } = getLocales()[0]
+  languageCode = 'es'
+
   return (
     <SafeAreaProvider>
       <SafeAreaView
@@ -51,35 +56,46 @@ export default function App() {
         onLayout={onLayoutRootView}
       >
         <StatusBar backgroundColor='#00b4d8' />
-        <ScrollView style={styles.scrollView}>
-          <View>
-            <Text style={styles.title}>Plate Calculator</Text>
+        <ScrollView
+          automaticallyAdjustKeyboardInsets={true}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1 }}
+          style={{ minWidth: 310 }}
+        >
+          <View style={{ flex: 1 }}>
+            <View style={{ marginTop: 8 }}>
+              <Text style={styles.title}>{languageCode === 'es' ? 'Calculadora de Discos' : 'Plate Calculator'}</Text>
+            </View>
+            <WeightInput
+              units={units}
+              setUnits={setUnits}
+              totalWeight={totalWeight}
+              setTotalWeight={setTotalWeight}
+              barbellWeight={barbellWeight}
+              setBarbellWeight={setBarbellWeight}
+              loadedPlates={loadedPlates}
+              setLoadedPlates={setLoadedPlates}
+              plateCounter={plateCounter}
+              languageCode={languageCode}
+            />
+            <Barbell
+              units={units}
+              totalWeight={totalWeight}
+              setTotalWeight={setTotalWeight}
+              barbellWeight={barbellWeight}
+              setBarbellWeight={setBarbellWeight}
+              loadedPlates={loadedPlates}
+              languageCode={languageCode}
+            />
+            <PlatesPerSide
+              units={units}
+              totalWeight={totalWeight}
+              barbellWeight={barbellWeight}
+              loadedPlates={loadedPlates}
+              languageCode={languageCode}
+            />
           </View>
-          <WeightInput
-            units={units}
-            setUnits={setUnits}
-            totalWeight={totalWeight}
-            setTotalWeight={setTotalWeight}
-            barbellWeight={barbellWeight}
-            setBarbellWeight={setBarbellWeight}
-            loadedPlates={loadedPlates}
-            setLoadedPlates={setLoadedPlates}
-            plateCounter={plateCounter}
-          />
-          <Barbell
-            units={units}
-            totalWeight={totalWeight}
-            setTotalWeight={setTotalWeight}
-            barbellWeight={barbellWeight}
-            setBarbellWeight={setBarbellWeight}
-            loadedPlates={loadedPlates}
-          />
-          <PlatesPerSide
-            units={units}
-            totalWeight={totalWeight}
-            barbellWeight={barbellWeight}
-            loadedPlates={loadedPlates}
-          />
+          <BuyMeACoffee />
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>

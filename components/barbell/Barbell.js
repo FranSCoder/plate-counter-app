@@ -5,7 +5,15 @@ import { Asset } from 'expo-asset'
 import styles from './barbell.style'
 import { useEffect, useState } from 'react'
 
-const Barbell = ({ units, totalWeight, setTotalWeight, barbellWeight, setBarbellWeight, loadedPlates }) => {
+const Barbell = ({
+  units,
+  totalWeight,
+  setTotalWeight,
+  barbellWeight,
+  setBarbellWeight,
+  loadedPlates,
+  languageCode,
+}) => {
   const [plateImages, setPlateImages] = useState([])
 
   const handleBarbellChange = () => {
@@ -93,11 +101,12 @@ const Barbell = ({ units, totalWeight, setTotalWeight, barbellWeight, setBarbell
           style={styles.barbellButton}
           onPress={handleBarbellChange}
         >
+          {languageCode === 'es' ? <Text style={styles.barbellButtonText}>Barra de</Text> : null}
           <Text style={styles.barbellButtonText}>
             {barbellWeight}
             {units}
           </Text>
-          <Text style={styles.barbellButtonText}>Barbell</Text>
+          {languageCode !== 'es' ? <Text style={styles.barbellButtonText}>Barbell</Text> : null}
         </TouchableOpacity>
       </View>
     </View>

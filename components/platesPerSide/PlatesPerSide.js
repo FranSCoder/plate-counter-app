@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 import styles from './platesPerSide.style'
 import { useEffect, useState } from 'react'
 
-const PlatesPerSide = ({ units, totalWeight, barbellWeight, loadedPlates }) => {
+const PlatesPerSide = ({ units, totalWeight, barbellWeight, loadedPlates, languageCode }) => {
   const [plateArray, setPlateArray] = useState([])
 
   useEffect(() => {
@@ -72,8 +72,14 @@ const PlatesPerSide = ({ units, totalWeight, barbellWeight, loadedPlates }) => {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.titleText}>Plates Per Side</Text>
-      {plateArray.length === 0 ? <Text style={styles.emptyBarText}>Plese, enter a desired weight</Text> : plateArray}
+      <Text style={styles.titleText}>{languageCode === 'es' ? 'Discos Por Lado' : 'Plates Per Side'}</Text>
+      {plateArray.length === 0 ? (
+        <Text style={styles.emptyBarText}>
+          {languageCode === 'es' ? 'Por favor, introduce peso a levantar' : 'Please, enter a desired weight'}
+        </Text>
+      ) : (
+        plateArray
+      )}
     </View>
   )
 }

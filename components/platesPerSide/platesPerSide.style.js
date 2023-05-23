@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titleText: {
-    fontSize: 28,
+    fontSize: 22,
     paddingBottom: 8,
     fontFamily: 'FCMedium',
     color: 'linen',

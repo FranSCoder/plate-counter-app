@@ -8,14 +8,10 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: 'FCMedium',
-    fontSize: 32,
+    fontFamily: 'FCBold',
+    fontSize: 24,
     color: 'linen',
     textAlign: 'center',
-  },
-  scrollView: {
-    paddingTop: 20,
-    paddingHorizontal: 36,
   },
 })
 

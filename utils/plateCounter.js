@@ -1,14 +1,22 @@
-const plateCounter = (pesoTotal, pesoBarra, unidad) => {
+const plateCounter = (pesoTotal, pesoBarra, unidad, languageCode) => {
   // Inicializar el resultado como un objeto vacío
   const resultado = {}
   const mensajes = {}
 
   // Devolver Error si existen anomalías
   if (pesoTotal < pesoBarra) {
-    mensajes.error = 'Minimum weight liftable is the bar weight'
+    if (languageCode === 'es') {
+      mensajes.error = 'El peso mínimo es el peso de la barra'
+    } else {
+      mensajes.error = 'Minimum weight liftable is the bar weight'
+    }
   }
   if ((unidad === 'Kgs' && pesoTotal > 500) || (unidad === 'Lbs' && pesoTotal > 1100)) {
-    mensajes.error = "That's too much weight!"
+    if (languageCode === 'es') {
+      mensajes.error = '¡Has cargado demasiado peso!'
+    } else {
+      mensajes.error = "That's too much weight!"
+    }
   }
 
   // Peso de los discos disponibles en kg y lbs
