@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Calculadora de Discos",
-    "slug": "Calculadora de Discos",
+    "slug": "plate-counter-app",
     "version": "3.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
