@@ -2,7 +2,7 @@
   "expo": {
     "name": "Calculadora de Discos",
     "slug": "plate-counter-app",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,7 @@
       "userInterfaceStyle": "light"
     },
     "android": {
-      "versionCode": 4,
+      "versionCode": 5,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff",
@@ -34,6 +34,12 @@
       }
     },
     "plugins": ["expo-localization"],
-    "owner": "franscoder"
+    "owner": "franscoder",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1c7afffb-c4e5-4a6e-840c-fee950061f0a"
+    }
   }
 }
