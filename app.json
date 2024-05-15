@@ -2,7 +2,7 @@
   "expo": {
     "name": "Calculadora de Discos",
     "slug": "plate-counter-app",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -33,6 +33,7 @@
         "projectId": "1c7afffb-c4e5-4a6e-840c-fee950061f0a"
       }
     },
-    "plugins": ["expo-localization"]
+    "plugins": ["expo-localization"],
+    "owner": "franscoder"
   }
 }
